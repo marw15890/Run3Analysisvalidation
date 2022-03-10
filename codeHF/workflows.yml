@@ -79,6 +79,12 @@ workflows:
       default: [HFCANDBPLUSBASE, HFCANDBPLUSEXT]
       mc: [HFCANDBPMCREC, HFCANDBPMCGEN]
 
+  o2-analysis-hf-candidate-creator-Xicc-toLcPiKPi:
+    <<: *cand_creator
+    dependencies: o2-analysis-hf-candidate-creator-3prong
+    tables:
+      default: [HFCANDXICCBASE, HFCANDXICCXEXT]
+      mc: [HFCANDXICCMCREC, HFCANDXICCMCGEN]
   # Selectors
 
   o2-analysis-hf-d0-candidate-selector: &selector_2prong
