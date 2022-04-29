@@ -48,6 +48,7 @@ DOO2_CAND_X=0       # hf-candidate-creator-x
 DOO2_CAND_CHIC=0    # hf-candidate-creator-chic
 DOO2_CAND_XICC=0    # hf-candidate-creator-xicc
 DOO2_CAND_BPLUS=0   # hf-candidate-creator-bplus
+DOO2_CAND_LB=1      # hf-candidate-creator-lb
 # Selectors
 DOO2_SEL_D0=0       # hf-d0-candidate-selector
 DOO2_SEL_DPLUS=0    # hf-dplus-topikpi-candidate-selector
@@ -60,7 +61,7 @@ DOO2_SEL_LCK0SP=0   # hf-lc-tok0sp-candidate-selector
 DOO2_SEL_XICC=0     # hf-xicc-topkpipi-candidate-selector
 DOO2_SEL_BPLUS=0    # hf-bplus-tod0pi-candidate-selector
 # User tasks
-DOO2_TASK_D0=1      # hf-task-d0
+DOO2_TASK_D0=0      # hf-task-d0
 DOO2_TASK_DPLUS=0   # hf-task-dplus
 DOO2_TASK_LC=0      # hf-task-lc
 DOO2_TASK_XIC=0     # hf-task-xic
@@ -76,6 +77,7 @@ DOO2_TREE_LC=0      # hf-tree-creator-lc-topkpi
 DOO2_TREE_X=0       # hf-tree-creator-x-tojpsipipi
 DOO2_TREE_XICC=0    # hf-tree-creator-xicc-topkpipi
 DOO2_TREE_CHIC=0    # hf-tree-creator-chic-tojpsigamma
+DOO2_TREE_LB=1      # hf-tree-creator-lb-tolcpi
 # Correlations
 DOO2_D0D0BAR_DATA=0      # hf-correlator-d0d0bar
 DOO2_D0D0BAR_MCREC=0     # hf-correlator-d0d0bar-mc-rec
@@ -95,7 +97,7 @@ APPLYCUTS_CHIC=0    # Apply χc(1p) selection cuts.
 APPLYCUTS_LCK0SP=0  # Apply Λc → K0S p selection cuts.
 APPLYCUTS_XICC=0    # Apply Ξcc selection cuts.
 
-SAVETREES=0         # Save O2 tables to trees.
+SAVETREES=1         # Save O2 tables to trees.
 USEO2VERTEXER=0     # Use the O2 vertexer in AliPhysics.
 DORATIO=0           # Plot histogram ratios in comparison.
 
@@ -257,6 +259,7 @@ function MakeScriptO2 {
   [ $DOO2_CAND_CASC -eq 1 ] && WORKFLOWS+=" o2-analysis-hf-candidate-creator-cascade"
   [ $DOO2_CAND_XICC -eq 1 ] && WORKFLOWS+=" o2-analysis-hf-candidate-creator-xicc"
   [ $DOO2_CAND_BPLUS -eq 1 ] && WORKFLOWS+=" o2-analysis-hf-candidate-creator-bplus"
+  [ $DOO2_CAND_LB -eq 1 ] && WORKFLOWS+=" o2-analysis-hf-candidate-creator-lb"
   # Selectors
   [ $DOO2_SEL_D0 -eq 1 ] && WORKFLOWS+=" o2-analysis-hf-d0-candidate-selector"
   WF_SEL_JPSI="o2-analysis-hf-jpsi-candidate-selector"
@@ -294,7 +297,7 @@ function MakeScriptO2 {
   [ $DOO2_TREE_X -eq 1 ] && WORKFLOWS+=" o2-analysis-hf-tree-creator-x-tojpsipipi"
   [ $DOO2_TREE_XICC -eq 1 ] && WORKFLOWS+=" o2-analysis-hf-tree-creator-xicc-topkpipi"
   [ $DOO2_TREE_CHIC -eq 1 ] && WORKFLOWS+=" o2-analysis-hf-tree-creator-chic-tojpsigamma"
-
+  [ $DOO2_TREE_LB -eq 1 ] && WORKFLOWS+=" o2-analysis-hf-tree-creator-lb-tolcpi"
   # Translate options into arguments of the generating script.
   OPT_MAKECMD=""
   [ "$ISMC" -eq 1 ] && OPT_MAKECMD+=" --mc"
@@ -387,3 +390,4 @@ FileAli="\$2"
 $POSTEXEC
 EOF
 }
+
