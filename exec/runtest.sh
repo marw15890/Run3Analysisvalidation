@@ -35,7 +35,7 @@ NFILESPERJOB_O2=1               # Number of input files per O2 job
 
 # Other options
 SAVETREES=0                     # Save O2 tables to trees.
-DEBUG=0                         # Print out more information.
+DEBUG=0                        # Print out more information.
 
 # Performance
 NCORES=$(nproc)                 # Ideal number of used cores

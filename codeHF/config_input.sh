@@ -131,7 +131,7 @@ case $INPUT_CASE in
     ISMC=1;;
   15)
     INPUT_LABEL="Run 5, p-p MC 14 TeV OniaX-enriched, Layout v1, oniaX analysis MUON ID and ECAL"
-    INPUT_DIR="/Users/mohammad/analysisdata-bb/BBbar"
+    INPUT_DIR="/Users/mohammad/datasignal/21" 
     INPUT_FILES="AODRun5.*.root"
     JSON="$JSONRUN5_HF"
     ISINPUTO2=1
